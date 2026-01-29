@@ -1,0 +1,6 @@
+boto3==1.35.93
+aws-sdk-bedrock-runtime==0.1.3
+smithy-aws-core==0.1.2
+pyaudio==0.2.14
+streamlit==1.41.1
+pytz==2024.2

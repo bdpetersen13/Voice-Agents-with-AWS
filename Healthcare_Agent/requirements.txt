@@ -1,0 +1,21 @@
+# Healthcare Appointment Scheduling Agent - Dependencies
+# Python 3.8+ required
+
+# AWS SDK
+boto3>=1.28.0
+aws_sdk_bedrock_runtime>=0.1.0,<0.2.0
+smithy-aws-core>=0.0.1
+
+# Audio streaming
+pyaudio>=0.2.13
+
+# Reactive extensions
+rx>=3.2.0
+
+# Timezone support
+pytz
+
+# Testing dependencies (optional)
+# pytest>=7.0.0
+# pytest-asyncio>=0.21.0
+# moto>=4.0.0  # For mocking AWS services
