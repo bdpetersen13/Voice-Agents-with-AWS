@@ -2,7 +2,18 @@
 
 ## Overview
 
-This repository contains AI voice agents built with AWS Bedrock Nova Sonic, demonstrating real-time conversational AI with HTTP/2 bidirectional audio streaming, tool integration, and low-latency responses with barge-in support.
+Voice Agents with AWS Bedrock Nova Sonic is a collection of ready-to-run AI voice agents that let you have natural, spoken conversations with an intelligent assistant. Just like if you were to call a real business and talk to a representative
+
+Each agent is built for a specific industry and handles real tasks: checking reservations, processing returns, answering banking questions, and taking restaurant orders. You speak, the agent listens and responds in real time, and it takes action by looking up or updating data on your behalf
+
+The repo currently includes five agents:
+1. Hotel: Front desk assistnat that manages guest reservations and requests
+2. Restaurant: Handles reservations, waitlists, and food orders
+3. Retail Kiosk: Self-service customer support for returns, transactions, and changes in membership
+4. Call Center: Inbound phone support for store hours, inventory, and appointments
+5. Banking: Secure voice banking with multi-step authentication and account services
+
+All the agents are built on AWS Bedrock Nova Sonic with real-time audio streaming, low-latency responses, and the ability to interrupt the agent mid-sentence. Each one connects to a database and can actually read and write data during the conversation
 
 ## Project Structure
 
@@ -68,7 +79,7 @@ voice-agents-master/
 
 **Database:** 2 tables (Hotel_Guests, Hotel_Reservations)
 
-**Status:** ✅ Complete - Original course project
+**Status:** ✅ Complete 
 
 ---
 
@@ -125,7 +136,7 @@ voice-agents-master/
 
 **Database:** 6 tables (Store_Info, Inventory, Curbside_Orders, Appointments, Specialty_Orders, Members)
 
-**Status:** ✅ Complete (1,631 lines of code)
+**Status:** ✅ Complete
 
 **Key Innovation:** Phone-optimized conversational flow with clear verbal confirmations
 
@@ -162,7 +173,7 @@ voice-agents-master/
 
 **Database:** 7 tables (Reservations, Waitlist, Tables, Customers, Orders, Menu, Notifications)
 
-**Status:** ✅ Complete (1,550+ lines of code)
+**Status:** ✅ Complete
 
 **Key Innovation:** Dual waitlist system + phone number-first identity resolution + integrated food ordering
 
@@ -173,7 +184,7 @@ voice-agents-master/
 
 **Capabilities:**
 - Multi-factor authentication (Phone → OTP → Security Question)
-- Progressive authentication (3 levels based on operation risk)
+- Progressive authentication (3 levels based on operational risk)
 - Account information (balances, transactions, statements)
 - Card services (lost/stolen, freeze/unfreeze, disputes)
 - Payments & transfers (internal, Zelle, bill pay, stop payment)
@@ -190,7 +201,7 @@ voice-agents-master/
 
 **Database:** 10 tables (Customers, Accounts, Transactions, Cards, Disputes, Transfers, AuthSessions, AuditLogs, Consents, BillPay)
 
-**Status:** ✅ Complete (2,596 lines of code)
+**Status:** ✅ Complete
 
 **Key Innovation:** Progressive authentication system with Level 1/2/3 security, immutable audit trail, full Regulation E compliance, jurisdiction-aware consent recording
 
@@ -206,13 +217,13 @@ voice-agents-master/
 
 ## Shared Architecture
 
-All agents share the same core architecture from the original hotel agent:
+All agents share the same core architecture as the original hotel agent:
 
 ### Core Components
 
 1. **BedrockStreamManager**
    - Manages HTTP/2 bidirectional streaming with AWS Bedrock
-   - Handles session initialization, audio I/O, tool execution
+   - Handles session initialization, audio I/O, and tool execution
    - Supports real-time barge-in (interrupt agent mid-sentence)
 
 2. **ToolProcessor** (domain-specific)
@@ -353,7 +364,7 @@ To create a new voice agent (e.g., healthcare, restaurant, etc.):
 
 1. **Verification First** - Always verify identity before sensitive operations
 2. **Async Execution** - Use async/await for non-blocking tool calls
-3. **Clear Feedback** - Return detailed messages for agent to convey
+3. **Clear Feedback** - Return detailed messages for the agent to convey
 4. **Error Handling** - Return structured errors for graceful degradation
 5. **Decimal Handling** - Convert Decimal to string for JSON serialization
 
@@ -378,7 +389,7 @@ To create a new voice agent (e.g., healthcare, restaurant, etc.):
 
 ### Scalability
 - [ ] DynamoDB auto-scaling
-- [ ] Connection pooling for database
+- [ ] Connection pooling for the database
 - [ ] Redis caching for hot data
 - [ ] Deploy to ECS/Lambda
 - [ ] Load balancing for multiple kiosks
